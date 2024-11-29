@@ -2,6 +2,8 @@ import streamlit as st
 from datetime import datetime, time
 from contrato import Vendas
 from pydantic import ValidationError
+from database import salvar_no_postgres
+
 
 def main():
 
@@ -29,6 +31,8 @@ def main():
                 produto = produto
 
             )
+
+            salvar_no_postgres(venda)
 
             st.write(venda)
 
